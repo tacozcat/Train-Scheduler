@@ -28,12 +28,12 @@ var newTrain = {
 
   database.ref().push(newTrain);
 
-  console.log(newTrain.name);
-  console.log(newTrain.destination);
-  console.log(newTrain.firstTrain);
-  console.log(newTrain.frequency);
+  // console.log(newTrain.name);
+  // console.log(newTrain.destination);
+  // console.log(newTrain.firstTrain);
+  // console.log(newTrain.frequency);
 
-  alert("Train successfully added");
+  // alert("Train successfully added");
 
   $("#train-name-input").val("");
   $("#destination-input").val("");
@@ -45,17 +45,17 @@ var newTrain = {
 
   database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
-    console.log(childSnapshot.val());
+    // console.log(childSnapshot.val());
 
   var trainName = childSnapshot.val().name;
   var trainDest = childSnapshot.val().destination;
   var trainFirst = childSnapshot.val().firstTrain;
   var trainFrequency = childSnapshot.val().frequency;
 
-  console.log(trainName);
-  console.log(trainDest);
-  console.log(trainFirst);
-  console.log(trainFrequency);
+  // console.log(trainName);
+  // console.log(trainDest);
+  // console.log(trainFirst);
+  // console.log(trainFrequency);
 
   var tFrequency = trainFrequency;
   var firstTime = trainFirst;
@@ -67,13 +67,13 @@ var newTrain = {
     console.log("DIFFERENCE IN TIME: " + diffTime);
 
   var tRemainder = diffTime % tFrequency;
-    console.log(tRemainder);
+    // console.log(tRemainder);
 
   var tMinutesTillTrain = tFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
   var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm a"));
+    // console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm a"));
   var nextTrainTime = moment(nextTrain).format("hh:mm a");
 
 $("#current-schedule > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" +
